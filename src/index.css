@@ -88,10 +88,6 @@ html {
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-/* Focus styles */
-.focus-ring {
-  @apply focus:outline-none focus:ring-4 focus:ring-blue-100 focus:ring-opacity-50;
-}
 
 /* Loading animation */
 @keyframes pulse-ring {
