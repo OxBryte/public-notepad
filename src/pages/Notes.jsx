@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import dummyNotes from "../data/dummyNotes";
+import dummyNotes from "../components/data/dummyNotes";
 
 export default function Notes() {
   return (
