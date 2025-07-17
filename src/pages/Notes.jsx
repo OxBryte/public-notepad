@@ -1,56 +1,6 @@
 import React from "react";
-
-// Dummy notes data
-const dummyNotes = [
-  {
-    id: 1,
-    text: "Blockchain is the future of secure data storage!",
-    image:
-      "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80",
-  },
-  {
-    id: 2,
-    text: "Decentralization empowers individuals and communities.",
-    image:
-      "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80",
-  },
-  {
-    id: 3,
-    text: "Ideas are best when shared with the world.",
-    image:
-      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80",
-  },
-  {
-    id: 4,
-    text: "Public notepads make collaboration easy and transparent.",
-    image:
-      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80",
-  },
-  {
-    id: 5,
-    text: "Blockchain is the future of secure data storage!",
-    image:
-      "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80",
-  },
-  {
-    id: 6,
-    text: "Decentralization empowers individuals and communities.",
-    image:
-      "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80",
-  },
-  {
-    id: 7,
-    text: "Ideas are best when shared with the world.",
-    image:
-      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80",
-  },
-  {
-    id: 8,
-    text: "Public notepads make collaboration easy and transparent.",
-    image:
-      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80",
-  },
-];
+import { Link } from "react-router-dom";
+import dummyNotes from "../data/dummyNotes";
 
 export default function Notes() {
   return (
@@ -61,18 +11,19 @@ export default function Notes() {
         </h1>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {dummyNotes.map((note) => (
-            <div
+            <Link
               key={note.id}
-              className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 flex flex-col gap-4 hover-lift transition-all duration-300"
+              to={`/notes/${note.id}`}
+              className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 flex flex-col gap-4 hover-lift transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-blue-400"
             >
               {note.image && (
                 <img
                   src={note.image}
                   alt="Note visual"
-                  className="w-full h-40 object-cover rounded-xl mb-2 border border-gray-200 shadow-sm"
+                  className="w-full h-40 object-cover rounded-xl mb-2 border border-gray-200 shadow-sm group-hover:opacity-90 transition-opacity"
                 />
               )}
-              <p className="text-lg text-gray-800 font-medium flex-1">
+              <p className="text-lg text-gray-800 font-medium flex-1 group-hover:text-blue-700 transition-colors">
                 {note.text}
               </p>
               <div className="flex justify-end mt-2">
@@ -80,7 +31,7 @@ export default function Notes() {
                   Note ID: {note.id}
                 </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

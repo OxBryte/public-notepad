@@ -3,6 +3,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import Layout from "./components/layout/Layout";
 import Notes from "./pages/Notes";
+import NoteDetails from "./pages/NoteDetails";
 
 function App() {
   return (
@@ -10,9 +11,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* <Route element={<Layout />}> */}
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/notes" element={<Notes />} />
-
+          <Route path="/" element={<Home />} />
+          <Route path="/notes" element={<Notes />} />
+          <Route path="/notes/:id" element={<NoteDetails />} />
           {/* </Route> */}
         </Routes>
       </BrowserRouter>
